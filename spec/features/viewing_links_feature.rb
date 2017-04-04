@@ -4,10 +4,8 @@ feature 'Viewing links' do
     visit '/links'
     expect(page.status_code).to eq 200
 
-    whitin 'ul#links' do
-      expect(page).to have_content('Makers Academy')
+    within 'ul#url' do
+      expect(page).to have_content('Title:')
     end
-
-    # expect(page).to have_link("Makers Academy", :href => "http://www.makersacademy.com")
   end
 end
