@@ -4,8 +4,6 @@ require 'dm-postgres-adapter'
 
 class Link
 
-  attr_reader :open
-
   include DataMapper::Resource
 
   property :id, Serial
@@ -15,7 +13,7 @@ class Link
 
 end
 
-  DataMapper::Logger.new($stdout, :debug)
+  # DataMapper::Logger.new($stdout, :debug)
   DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
 
 DataMapper.finalize

@@ -5,8 +5,13 @@ feature 'inputting links' do
   end
   scenario 'can submit a new link to bookmark manager' do
     visit '/links/new'
-    fill_in('name', with: 'Makers Academy')
-    fill_in('url', with: 'http://www.makersacademy.com')
+    fill_in(:name, with: 'Makers Academy')
+    fill_in(:url, with: 'http://www.makersacademy.com')
     click_button 'Submit'
+    expect(current_path).to eq '/links'
+
+    within 'ul#url' do
+      expect(page).to have_content 'Makers Academy'
+    end
   end
 end
