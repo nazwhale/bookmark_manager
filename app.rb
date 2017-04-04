@@ -15,4 +15,8 @@ class Bookmark < Sinatra::Base
     erb(:links)
   end
 
+  get '/links/new' do
+    erb(:new_links)
+  end
+
 end

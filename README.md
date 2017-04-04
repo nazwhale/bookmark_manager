@@ -1,6 +1,6 @@
 ## User Stories
 
-```sh
+```
 As a User
 So that I can visit bookmarked pages
 I want to see a list of links on the homepage
