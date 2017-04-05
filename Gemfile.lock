@@ -111,6 +111,7 @@ GEM
 
 PLATFORMS
   ruby
+  unknown
 
 DEPENDENCIES
   capybara
@@ -120,6 +121,9 @@ DEPENDENCIES
   pry
   rspec
   sinatra
+
+RUBY VERSION
+  ruby 2.3.3p222
 
 BUNDLED WITH
    1.14.6
