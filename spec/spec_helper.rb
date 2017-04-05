@@ -8,6 +8,7 @@ require 'rspec'
 require 'database_cleaner'
 
 require './models/link'
+require './models/tag'
 require 'features/viewing_links_feature'
 require 'features/creating_links_feature'
 require 'features/adding_tags_feature'
