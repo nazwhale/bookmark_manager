@@ -9,8 +9,12 @@ class Link
   has n, :tags, through: Resource
 
   property :id, Serial
-  property :name, String
+  property :title, String
   property :url, String
+
+  def self.instance
+    @links
+  end
 
 
 end

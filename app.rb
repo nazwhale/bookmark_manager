@@ -9,9 +9,7 @@ require_relative 'models/tag'
 
 class Bookmark < Sinatra::Base
 
-
   get '/' do
-    erb(:index)
     redirect '/links'
   end
 
@@ -26,11 +24,21 @@ class Bookmark < Sinatra::Base
   end
 
   post '/links' do
-    link = Link.new(url: params[:url], name: params[:name])
+    link = Link.new(url: params[:url], title: params[:name])
     tag = Tag.first_or_create(name: params[:tags])
     link.tags << tag
     link.save
     redirect '/links'
   end
 
+  post '/tags' do
+    tag = Tag.first(name: params[:filter])
+    $links = tag ? tag.links : []
+    redirect '/tags/tag_filter'
+  end
+
+  get '/tags/tag_filter' do
+    @links = $links
+    erb(:links)
+  end
 end
