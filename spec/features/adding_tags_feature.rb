@@ -1,5 +1,6 @@
 feature 'inputting tags' do
   before do
+    sign_in
     visit '/links/new'
     fill_in(:name, with: 'Makers Academy')
     fill_in(:url, with: 'http://www.makersacademy.com')

@@ -6,7 +6,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-
+require_relative 'web_helper'
 require './models/link'
 require './models/tag'
 require 'features/viewing_links_feature'

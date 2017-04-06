@@ -12,9 +12,4 @@ class Link
   property :title, String
   property :url, String
 
-  def self.instance
-    @links
-  end
-
-
 end
