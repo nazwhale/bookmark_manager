@@ -9,9 +9,10 @@ require_relative 'models/user'
 
 class Bookmark < Sinatra::Base
 
-  enable :sessions
+ enable :sessions
+ set :session_secret, 'super secret'
 
-  get '/' do
+ get '/' do
     redirect '/links'
   end
 
