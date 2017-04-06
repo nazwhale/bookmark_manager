@@ -16,7 +16,7 @@ class Bookmark < Sinatra::Base
   get '/links' do
     @links = Link.all
     @tags = Tag.all
-    erb(:links)
+kajfsb    erb(:links)
   end
 
   get '/links/new' do
@@ -41,5 +41,10 @@ class Bookmark < Sinatra::Base
   get '/tags/tag_filter' do
     @links = $links
     erb(:links)
+  end
+
+  post '/sign_in' do
+    $user = User.new(email: params[:email], password: params[:password]) 
+    redirect('/links')
   end
 end

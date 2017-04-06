@@ -13,6 +13,7 @@ require 'features/viewing_links_feature'
 require 'features/creating_links_feature'
 require 'features/adding_tags_feature'
 require 'features/filter_links_feature'
+require 'features/signing_in_feature'
 
 Capybara.app = Bookmark
 
