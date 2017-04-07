@@ -6,8 +6,10 @@ require_relative './data_mapper_setup'
 require_relative 'models/link'
 require_relative 'models/tag'
 require_relative 'models/user'
+require 'sinatra/flash'
 
 class Bookmark < Sinatra::Base
+  register Sinatra::Flash
 
  enable :sessions
  set :session_secret, 'super secret'
@@ -47,13 +49,19 @@ class Bookmark < Sinatra::Base
   end
 
   get '/sign_in' do
+    @user = User.new
     erb(:sign_in)
   end
 
   post '/sign_in' do
-    user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation]) 
-    session[:id] = user.id
-    redirect('/links')
+    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:id] = @user.id
+      redirect('/links')
+    else
+      flash.now[:notice] = 'Password and confirmation password do not match'
+      erb :sign_in
+    end
   end
 
   helpers do

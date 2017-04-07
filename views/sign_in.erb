@@ -2,16 +2,16 @@
 
   <form action="/sign_in" method="post">
     <label>
-      Email: 
-      <input type='text' name='email'/>
+      Email:
+      <input name='email' type='text' value="<%= @user.email %>">
     </label>
     <label>
       Password:
-      <input type="text" name="password"/>
+      <input type="password" name="password">
     </label>
     <label>
       Confirm password:
-      <input type="text" name="password_confirmation">
-    </label> 
-    <input type="submit" value="Submit"/>
+      <input type="password" name="password_confirmation">
+    </label>
+    <input type="submit" value="Submit">
   </form>
